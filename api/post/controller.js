@@ -54,9 +54,10 @@ exports.getPosts = asyncHandler(async(req,res,next)=>{
 // @req-type: GET
 // @description : Get notice by username
 exports.getPost = asyncHandler(async(req, res, next)=>{
-    const post = await Post.find({title: req.params.username});
+    const post = await Post.find({username: req.params.username});
     return res.status(200).json({
         success: true,
+        count: post.length,
         post
     });
 });
