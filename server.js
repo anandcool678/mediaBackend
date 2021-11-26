@@ -25,6 +25,7 @@ const auth = require('./api/auth');
 const user = require('./api/user');
 const post = require('./api/post');
 const job = require('./api/job');
+const session = require('./api/session');
 const app = express();
 // Body Parser
 
@@ -73,6 +74,7 @@ app.use('/api/v1/auth', auth);
 app.use('/api/v1/user', user);
 app.use('/api/v1/post',post);
 app.use('/api/v1/job',job);
+app.use('/api/v1/session',session);
 app.get('*.*', express.static('./public/frontend')); // production
 
 app.all('*', (req, res) => {
