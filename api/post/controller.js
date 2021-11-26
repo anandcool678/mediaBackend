@@ -14,11 +14,6 @@ const { get } = require('http');
 
 exports.addPost = asyncHandler(async(req, res, next) =>{
   
-  // return res.status(200).json({
-  //   success: true,
-  //   message: `File added successfully`,
-    
-  //   })
   const body ={
     username: req.body.username,
     content: req.body.content,
@@ -52,7 +47,7 @@ exports.getPosts = asyncHandler(async(req,res,next)=>{
 
 //@route:
 // @req-type: GET
-// @description : Get notice by username
+// @description : Get post by username
 exports.getPost = asyncHandler(async(req, res, next)=>{
     const post = await Post.find({username: req.params.username});
     return res.status(200).json({
